@@ -9,9 +9,13 @@ html,body{
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color:#222121;
+
 }
 #preloader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 500px;
     height: 2px;
@@ -19,6 +23,7 @@ html,body{
     background: #fff;
     background-position: center;
     margin-top: 300px;
+    z-index: 99999;
 
 }
 .circle{
@@ -35,7 +40,7 @@ html,body{
 
 #preloader p{
     position: absolute;
-    color: rgba(0,0,0,0.9);
+    color: #222121;
     top: -35px;
     text-transform: uppercase;
     font-weight: bold;
@@ -62,12 +67,12 @@ html,body{
     width: 100%;
 }
 #navbar a{
+    cursor: pointer;
     font-size: 18px;
-    padding-right: 50px;
+    margin-right: 50px;
     text-decoration: none;
-    color: #bbbbbb;
-    opacity: 0.8;
-
+    color: #fff;
+    opacity: 0.9;
 }
 #navbar #storeButton{
     top: 40px;
@@ -85,14 +90,145 @@ html,body{
 
 button{
     border: none;
+    cursor: pointer;
 }
 
-/*******************Logo***********************/
+#toggleButton{
+    width: 42px;
+    height: 21px;
+    cursor: pointer;
+    margin-top: 47px;
+    margin-left: 27px;
+    display: none;
+    z-index: 22;
+}
+#toggleButton #hamburger{
+    z-index: 22;
+    position: absolute;
+    background-color: #fff;
+    width: 35px;
+    height: 3px;
+    top: 57px;
+    left: 30px;
+    border-radius: 20px;
+    -webkit-transition:ease-in-out .3s ;
+}
+
+#hamburger::before,
+#hamburger::after{
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+    -webkit-transition: ease-in-out .5s;
+}
+
+#hamburger::after{
+    top: -5px;
+}
+
+#hamburger::before{
+    top: 5px;
+}
+
+#toggleButton.active #hamburger{
+    background-color: transparent;
+}
+#toggleButton.active #hamburger::before
+{
+    transform: rotate(-45deg);
+    top: 0;
+}
+#toggleButton.active #hamburger::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@-webkit-keyframes slideIn{
+    0%{left: 0;}
+    100%{left: -885px;}
+}
+
+#slideNav{
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    left: -885px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    transition: ease-in-out 0.8s;
+    background-color: rgba(34, 33, 33, 0.9);
+}
+
+@-webkit-keyframes slideOut{
+    0%{left: -885px;}
+    100%{left: 0;}
+}
+
+#slideNav.active{
+    top: 0;
+    animation-name: slideOut;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.8s;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    left: 0%;
+}
+#slideNav a{
+    position: relative;
+    margin-left: 8rem;
+    top: 3rem;
+    align-self: flex-start;
+    cursor: pointer;
+    margin-bottom: 4rem;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.9;
+    z-index: 23;
+}
+
+#slideNav #Button{
+    position: absolute;
+    top: 36rem;
+    left: 7.5rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color:  #ff3333;
+    color: #fff;
+    font-weight: bold;
+}
+@media(min-width:879px){
+    #slideNav{
+    display: none;
+    visibility: hidden;
+    }
+
+}
+@media(max-width:879px){
+    #navbar{
+        display: none;
+    }
+
+    #toggleButton{
+        display: block;
+    }
+}
+
+/*******************Logo and landing page***************/
 
 #logo{
    position: absolute;
-   padding-top: 150px;
-   padding-left: 50px;
+   top: 150px;
+   left: 50px;
 }
 #caption{
     position: absolute;
@@ -125,8 +261,20 @@ button{
 }
 #navWrapper{
     position: absolute;
-    background-color: black;
-    opacity: 0.9;
+    background-color:#222121;
     width:100%;
     height: 420px;
 }
+
+#background{
+    display: block;
+    position: fixed;
+    background-image: url('./assets/david-monje-fGxXDFvwsAw-unsplash.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    z-index: -111111;
+}
+
+/*****************************************************/
