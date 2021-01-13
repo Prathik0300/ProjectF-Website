@@ -4,6 +4,9 @@ var main = document.getElementById('background');
 var Hamburger = document.getElementsByClassName("isActive");
 var slideNav = document.getElementById("slideNav");
 var icons = document.getElementsByClassName("bulb");
+var navbar = document.getElementById("navbar");
+
+
 function exitPreloader(){
     preloader.style.display = 'none';
     body.style.backgroundColor = 'white';
@@ -48,11 +51,13 @@ function pushToggle(){
         toggle.style.top = "-2.5rem";
         if(push.length==0){
             slideNav.classList.add("pushUp");
+            navbar.classList.add("pushUp1");
         }
               
     }
     else{
         toggle.style.top = "0";
         slideNav.classList.remove("pushUp");
+        navbar.classList.remove("pushUp1");
     }
 }

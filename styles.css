@@ -59,33 +59,58 @@ html,body{
 /*********************PRELOADER********************/
 /*********************main page********************/
 #navbar{
-    position:absolute;
+    position: fixed;;
     display: flex;
     flex-direction: row;
     justify-content: left;
     padding-top: 50px;
     width: 100%;
+    z-index: 100000;
+    transition: ease-in-out .5s;
+
+}
+#navbar.pushUp1{
+    z-index: 10000000;
+    transition: ease-in-out .5s;
+
+}
+
+#navbar.pushUp1 #navitems{
+    top: -2.5rem;
+    transition: ease-in-out .5s;
+}
+
+#navbar.pushUp1 #navitems a{
+    top: -2.5rem;
+}
+
+#navbar.pushUp1 #storeButton{
+    top: .3rem;
 }
 #navbar a{
+    position: relative;
     cursor: pointer;
     font-size: 18px;
     margin-right: 50px;
     text-decoration: none;
     color: #fff;
     opacity: 0.9;
+    transition: ease-in-out .5s;  
 }
 #navbar #storeButton{
     top: 40px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     border-radius: 10px;
     background-color: #ff3333;
     position: absolute;
     right: 60px;
     color: #fff;
     font-weight: bold;
+    transition: ease-in-out .5s;
+
 }
 
 button{
@@ -516,8 +541,6 @@ button{
     width: 100%;
     margin-bottom: 3rem;
     transition: ease-in-out 1s;
-    position: absolute;
-    top: 15rem;
 }
 
 @-webkit-keyframes mini{
@@ -617,6 +640,8 @@ button{
 
 @media(max-width:900px){
     #process{
+        position: relative;
+        top: 5rem;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
